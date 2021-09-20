@@ -22,6 +22,7 @@ if ( isset( $_POST[ 'uname' ] ) && isset( $_POST[ 'password' ] ) ) {
   if ( mysqli_num_rows( $result ) == 1 ) {
 
     echo "Logged in!";
+    header("location: home.html");
 
   } else {
 
