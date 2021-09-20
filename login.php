@@ -3,7 +3,7 @@ session_start();
 
 include "db_con.php";
 
-if ( isset( $_POST[ 'Uname' ] ) && isset( $_POST[ 'Pass' ] ) ) {
+if ( isset( $_POST[ 'uname' ] ) && isset( $_POST[ 'password' ] ) ) {
 
   function validate( $data ) {
     $data = trim( $data );
@@ -12,9 +12,9 @@ if ( isset( $_POST[ 'Uname' ] ) && isset( $_POST[ 'Pass' ] ) ) {
     return $data;
   }
 
-  $uname = validate( $_POST[ 'Uname' ] );
-  $pass = validate( $_POST[ 'Pass' ] );
-  
+  $uname = validate( $_POST[ 'uname' ] );
+  $pass = validate( $_POST[ 'password' ] );
+
   $sql = "SELECT * FROM doctor where name = '$uname' AND password = md5('$pass')";
 
   $result = mysqli_query( $conn, $sql );
@@ -25,7 +25,8 @@ if ( isset( $_POST[ 'Uname' ] ) && isset( $_POST[ 'Pass' ] ) ) {
 
   } else {
 
-    echo "password error";
+    $_SESSION[ "error" ] = "usernam eor password is incorrect";
+    header( "location: index.php" ); //send user back to the login page.
     exit();
 
   }
