@@ -12,7 +12,7 @@
   <h2>Login page</h2>
   <label>User Name</label>
   <input id="Uname" type="text" name="uname" placeholder="User Name" autocomplete="on" required>
-  <br>
+  <br><br>
   <label>Password</label>
   <input id="Pass" type="password" name="password" placeholder="Password" required>
   <br>
@@ -20,7 +20,7 @@
   <?php
   if ( isset( $_SESSION[ "error" ] ) ) {
     $error = $_SESSION[ "error" ];
-    echo "<span style='color:red;'>$error</span>";
+    echo "<span style='color:red; font-size: 20px;'>$error</span>";
   }
   ?>
 	<br>

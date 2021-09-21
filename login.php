@@ -21,12 +21,11 @@ if ( isset( $_POST[ 'uname' ] ) && isset( $_POST[ 'password' ] ) ) {
 
   if ( mysqli_num_rows( $result ) == 1 ) {
 
-    echo "Logged in!";
-    header("location: home.html");
+    header("location: home/index.html");
 
   } else {
 
-    $_SESSION[ "error" ] = "usernam eor password is incorrect";
+    $_SESSION[ "error" ] = "username or password is incorrect";
     header( "location: index.php" ); //send user back to the login page.
     exit();
 
